@@ -8,7 +8,7 @@ return array(
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '0000',
-    'dbname' => 'hero_game',
+    'dbname' => 'hero',
   ),
   'app' => array(
     'name' => 'Hero Game',

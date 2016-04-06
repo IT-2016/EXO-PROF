@@ -1,16 +1,20 @@
 <?php
 require_once 'app/init.php';
 
+include_once 'app/inc/head.php';
+
 $heroes = $mapper->fetchAll();
 
-echo '<h1>Heros</h1>';
-echo '<ul>';
+$html = '<h1>mes Heros</h1><ul class="listHero">';
 foreach( $heroes as $hero) {
-  echo '<li>' . $hero->getNom(). ', ' . get_class($hero);
-  echo ' - <a href="./delete.php?id=' . $hero->getId() . '">Supprimer</a></li>';
+  $html .= '<li><strong class="nameHero">' . $hero->getNom(). '</strong>, <em class="classHero">' . get_class($hero);
+  $html .= '</em><a href="./delete.php?id=' . $hero->getId() . '"><i class="fa fa-trash"></i></a></li>';
 }
-echo '</ul>';
+$html .= '</ul>';
 
+
+	echo $html.'<a href="./new.php" class="newHero"><i class="fa fa-plus"></i> hero</a>';
+
+include_once 'app/inc/footer.php';
 ?>
 
-<a href="./new.php">Ajouter un hero</a>
